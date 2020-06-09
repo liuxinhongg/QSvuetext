@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.min.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        {{news}}
+        <div v-show="isSeen">我可以显示吗？</div>
+    </div>
+    <script>
+        let vm = new Vue({
+            el: "#app",
+            data: {
+                message: "今天星期二~",
+                news: "<h1>今天星期二~中雨</h1>",
+                isSeen: false
+            }
+        })
+    </script>
+</body>
+
+</html>

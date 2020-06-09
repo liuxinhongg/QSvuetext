@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.min.js"></script>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <input type="button" value="点击" v-on:click="btn()">
+        <div class="box" v-show="isshow"></div>
+
+    </div>
+</body>
+<script>
+    let vm = new Vue({
+        el: " #app ",
+        data: {
+            isshow: true
+        },
+        methods: {
+            btn() {
+                this.isshow = !this.isshow;
+            }
+        },
+    })
+</script>
+
+</html>
