@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.min.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div v-if="state">未登录</div>
+        <div v-else>登录</div>
+        <ul>
+            <!-- <li v-for="(item,index) in pome" :key="index">
+                {{item}}
+            </li> -->
+            <li v-for="item in pome">
+                {{item}}
+            </li>
+        </ul>
+        <div v-for="(aa,index) in nameobj" :key="index">
+            <h1>{{aa.cardId}} {{aa.name}}</h1>
+            <img :src="aa.imgurl" width="100" /> </div>
+    </div>
+    <script>
+        let vm = new Vue({
+            el: "#app",
+            data: {
+                state: false,
+                pome: ['锄禾日当午', '汗滴禾下土', '谁知盘中餐', '粒粒皆辛苦'],
+                nameobj: [{
+                    name: "马草莓",
+                    imgurl: './img/cat.jpg',
+                    cardId: 1
+                }, {
+                    name: "孔金平",
+                    imgurl: './img/cat.jpg',
+                    cardId: 2
+                }, {
+                    name: "杨言波",
+                    imgurl: './img/cat.jpg',
+                    cardId: 3
+                }],
+            }
+        })
+    </script>
+</body>
+
+</html>
