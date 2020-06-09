@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.min.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <hello>
+            <div slot="one">我想替换第一个slot</div>
+            <div slot="two">我想替换第二个slot</div>
+            <div slot="three">我想替换第三个slot</div>
+        </hello>
+        <hello>
+            <div slot="one">我想替换第一个slot</div>
+            <div slot="two">我想替换第二个slot</div>
+            <div slot="three">我想替换第三个slot</div>
+        </hello>
+        <hello>
+            <div slot="one">我想替换第一个slot</div>
+            <div slot="two">我想替换第二个slot</div>
+            <div slot="three">我想替换第三个slot</div>
+        </hello>
+    </div>
+    <template id="box">
+        <div>
+        <span>开始</span>
+        <slot name="two">我是第二个插槽</slot>
+        <slot name="one">我是第一个插槽</slot>
+        <slot name="three">我是第三个插槽</slot>
+        <h1>时刻提防货款收到回复框上导航发快速导航</h1>
+    </div>
+    </template>
+    <script>
+        Vue.component('hello', {
+            template: "#box"
+        })
+        new Vue({
+            el: "#app",
+        })
+    </script>
+</body>
+
+</html>

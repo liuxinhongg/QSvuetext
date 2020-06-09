@@ -10,16 +10,20 @@
 
 <body>
     <div id="app">
-        {{message}}
+        <hello-world>
+            <div>111111111111111111</div>
+            <h1>
+                <font>我是组件内容</font>
+            </h1>
+        </hello-world>
+        <div>222222222222222222222222222222222</div>
     </div>
-    <!-- <script type="x-template" id="box">
-        <div>
-            欢迎：{{message}}
-        </div>
-    </script> -->
     <template id="box">
         <div>
-            欢迎：{{message}}
+            <p>我是模板的开始位置</p>
+            <!-- //插槽 -->
+            <slot></slot> 
+            <p>我是模板的结束位置</p>
         </div>
     </template>
 </body>
@@ -29,7 +33,11 @@
         data: {
             message: "今天是星期二"
         },
-        template: "#box"
+        components: {
+            "helloWorld": {
+                template: "#box"
+            }
+        }
     })
 </script>
 
