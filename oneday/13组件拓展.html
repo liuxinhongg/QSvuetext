@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.min.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <hello-world></hello-world>
+        <hello-world></hello-world>
+        <hello-world></hello-world>
+        <hello-world></hello-world>
+        <hello-world></hello-world>
+        <hello-world></hello-world>
+        <hello-world></hello-world>
+    </div>
+    <template id="box">
+        <div>
+            <h1 @click="change()">{{title}}</h1>
+            <ul v-for="(item,index) in datalist" ::key="index">
+                <li> <img :src="item.imgurl" alt="" srcset="" width="100"> {{item.name}}</li>
+            </ul>
+        </div>
+    </template>
+    <script>
+        let vm = new Vue({
+            el: "#app",
+            // data: {},
+            components: {
+                "helloWorld": {
+                    template: "#box",
+                    data() {
+                        return {
+                            datalist: [{
+                                name: "马草莓",
+                                imgurl: './img/cat.jpg',
+                                cardId: 1
+                            }, {
+                                name: "孔金平",
+                                imgurl: './img/cat.jpg',
+                                cardId: 2
+                            }, {
+                                name: "杨言波",
+                                imgurl: './img/cat.jpg',
+                                cardId: 3
+                            }],
+                            title: "我是标题"
+                        }
+                    },
+                    methods: {
+                        change() {
+                            this.title = "我是标题，我被点击了"
+                        }
+                    },
+                },
+
+            }
+        })
+    </script>
+</body>
+
+</html>
