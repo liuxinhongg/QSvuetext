@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.min.js"></script>
+    <style>
+        .bg {
+            background: red;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <div title-data="aaaa"></div> -->
+    <div id="app"></div>
+    <script>
+        let vm = new Vue({
+            el: "#app",
+            data: {},
+            render(createElement) {
+                return createElement("ul", {
+                    //添加class类
+                    class: {
+                        bg: true
+                    },
+                    //添加样式
+                    style: {
+                        fontSize: "30px"
+                    },
+                    //自定义属性
+                    attrs: {
+                        sun: "saa"
+                    }
+                }, [
+                    createElement("li", {
+                            class: {
+                                oli: true
+                            }
+                        },
+                        "你好~"),
+                    createElement("li", "你好~"),
+                    createElement("li", "你好~"),
+                    createElement("li", "你好~"),
+                    createElement("li", "你好~")
+                ])
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="js/vue.min.js"></script>
 </head>
 
@@ -12,6 +13,7 @@
     <div id="app">
         {{name}} <input type="button" value="更新" onclick="change()">
         <input type="button" value="销毁" onclick="destroy()">
+        <input type="button" value="点击" id="btn">
     </div>
     <script>
         let vm = new Vue({
@@ -20,17 +22,26 @@
                 name: "sun"
             },
             beforeCreate() {
-                alert("实例创建前~")
+                alert("实例创建前~");
+                // $("#btn").click(function() {
+                //     alert("我是谁~我在哪~")
+                // })
             },
             created() {
                 alert("实例创建完成！")
             },
             beforeMount() {
                 alert("实例挂载前~")
+                $("#btn").click(function() {
+                    alert("我是谁~我在哪~")
+                })
 
             },
             mounted() {
-                alert("实例挂载完成~")
+                alert("实例挂载完成~");
+                // $("#btn").click(function() {
+                //     alert("我是谁~我在哪~")
+                // })
             },
             beforeUpdate() {
                 alert("更新前")

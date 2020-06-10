@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.min.js"></script>
+    <style>
+        .ospan {
+            font-size: 24px;
+        }
+        
+        .sun {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <span class="ospan" :class="{sun:addclass}">dhello worl</span> </div>
+    <script>
+        let vm = new Vue({
+            el: "#app",
+            data: {
+                addclass: true
+            }
+        })
+    </script>
+</body>
+
+</html>
