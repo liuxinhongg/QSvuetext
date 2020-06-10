@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.min.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <hello :post-title="post.title" :likes="post.num" author="{a:'aaa'}"></hello>
+    </div>
+    <template id="box">
+        <div>
+            <h1>{{postTitle}}</h1>
+            <h2>{{likes}}</h2>
+            <h2>{{author}}</h2>
+        </div>
+    </template>
+    <script>
+        Vue.component("hello", {
+            template: "#box",
+            props: {
+                postTitle: String,
+                likes: Number,
+                author: Object
+            },
+            // data() {
+            //     post: {
+            //         title: "你好！"
+            //     }
+            // }
+
+        })
+        new Vue({
+            el: "#app",
+            data: {
+                post: {
+                    title: "你好！",
+                    num: 22
+                }
+            },
+            // props: ["postTitl", "likes", "author"]
+
+        })
+    </script>
+</body>
+
+</html>
