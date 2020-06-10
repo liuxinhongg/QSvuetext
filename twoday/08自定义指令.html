@@ -14,16 +14,31 @@
     </div>
 </body>
 <script>
-    Vue.directive("red", {
-        bind: function(el) {
-            el.style.background = "red"
-            el.style.color = "white"
-        }
-    })
-    new Vue({
-        el: "#app",
+    // Vue.directive("red", {
+    //     bind: function(el) {
+    //         el.style.background = "red"
+    //         el.style.color = "white"
+    //     }
+    // })
+    // new Vue({
+    //     el: "#app",
+    //     data: {
+    //         name: "张三"
+    //     }
+    // })
+
+    let vm = new Vue({
+        el: '#app',
         data: {
             name: "张三"
+        },
+        directives: {
+            "red": {
+                bind: function(el) {
+                    el.style.background = "red"
+                    el.style.color = "white"
+                }
+            }
         }
     })
 </script>

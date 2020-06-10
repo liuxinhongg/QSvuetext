@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.min.js"></script>
+    <style>
+        .hello {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        
+        .world {
+            width: 200px;
+            height: 200px;
+            background-color: yellow;
+            position: absolute;
+            top: 200px;
+            left: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div v-drag class="hello"></div>
+        <div v-drag class="world"></div>
+    </div>
+</body>
+<script>
+    Vue.directive("drag", {
+        bind: function(el) {
+            el.onmousedown = function(event) {
+                var deltaX = event.clientX - el.offsetLeft;
+                var deltaY = event.clientY - el.offsetTop;
+                el.onmousemove = function(event) {
+                    var x = event.clientX - deltaX;
+                    var y = event.clientY - deltaY;
+                    el.style.left = x + "px";
+                    el.style.top = y + "px";
+                }
+                document.onmouseup = function() {
+                    // document.onmouseup = null;
+                    document.onmousemove = null;
+                }
+            }
+        }
+    })
+    new Vue({
+        el: "#app",
+        data: {
+            name: "张三"
+        }
+    })
+</script>
+
+</html>
