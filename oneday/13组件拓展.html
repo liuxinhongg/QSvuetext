@@ -21,7 +21,7 @@
     <template id="box">
         <div>
             <h1 @click="change()">{{title}}</h1>
-            <ul v-for="(item,index) in datalist" ::key="index">
+            <ul v-for="(item,index) in datalist" :key="index">
                 <li> <img :src="item.imgurl" alt="" srcset="" width="100"> {{item.name}}</li>
             </ul>
         </div>

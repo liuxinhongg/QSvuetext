@@ -16,6 +16,9 @@
             <component :is="title "></component>
         </keep-alive>
     </div>
+    <template id="aa">
+        <div> <h1>我是hello组件</h1></div>
+    </template>
     <script>
         let vm = new Vue({
             el: "#app ",
@@ -24,9 +27,7 @@
             },
             components: {
                 'hello': {
-                    template: `
-                   <div> <h1>我是hello组件</h1></div>
-                    `
+                    template: "#aa"
                 },
                 "world": {
                     template: `
