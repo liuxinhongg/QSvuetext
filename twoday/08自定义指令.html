@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.min.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div v-red>{{name}}</div>
+    </div>
+</body>
+<script>
+    Vue.directive("red", {
+        bind: function(el) {
+            el.style.background = "red"
+            el.style.color = "white"
+        }
+    })
+    new Vue({
+        el: "#app",
+        data: {
+            name: "张三"
+        }
+    })
+</script>
+
+</html>

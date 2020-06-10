@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.min.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h1>{{a}}</h1>
+        <h1>{{b}}</h1>
+    </div>
+    <script>
+        let vm = new Vue({
+            el: "#app",
+            data: {
+                a: 111,
+                b: 222
+            }
+        })
+        vm.$watch('a', function() {
+            alert("a发生了变化");
+            this.b = this.a + 10;
+        })
+        document.onclick = function() {
+            vm.a = 123
+        }
+    </script>
+</body>
+
+</html>

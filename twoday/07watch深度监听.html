@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.min.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h1>{{a}}</h1>
+        <h2>{{b}}</h2>
+        <h2>{{obj.name}}</h2>
+    </div>
+    <script>
+        let vm = new Vue({
+            el: "#app",
+            data: {
+                a: 111,
+                b: 222,
+                obj: {
+                    name: "sun"
+                }
+            }
+        })
+        vm.$watch("obj", function() {
+            alert("obj发生了变化");
+            // this.b = this.a + 10;
+        }, {
+            deep: true
+        })
+        document.onclick = function() {
+            vm.obj.name = "太阳";
+        }
+    </script>
+</body>
+
+</html>
