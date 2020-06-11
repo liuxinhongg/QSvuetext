@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue-resource/1.5.1/vue-resource.min.js"></script>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script>
+        let vm = new Vue({
+            el: "#app",
+            data: {},
+            mounted() {
+                this.getdata();
+            },
+            methods: {
+                getdata() {
+                    // $.get(url, 参数， h回调)
+                    // this.$http.get("https://www.v2ex.com/api/topics/latest.json").then(function(res) {
+                    //     console.log(res);
+                    // }
+                    // this.$http.get("http://route.showapi.com/1211-1?showapi_appid=46452&count=15&showapi_sign=c3bc2247155b4219bffb60cac4fd315c").then(res => {
+                    //     console.log(res);
+                    // })
+                    // vue - resource: get参数放到params / post {}
+
+                    this.$http.get("http://route.showapi.com/1211-1", {
+                        params: {
+                            showapi_appid: '46452',
+                            count: 10,
+                            showapi_sign: 'c3bc2247155b4219bffb60cac4fd315c'
+                        }
+                    }).then(res => {
+                        console.log(res);
+                    })
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>
