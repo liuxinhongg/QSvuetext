@@ -10,33 +10,33 @@
 </head>
 
 <body>
-    <div id="app"></div>
+    <div id="app">
+        <input type="text" @keyup="getdata()" v-model="inputval">
+        <ul>
+            <li v-for="(item,index) in baidudata" :key="index">{{item}}</li>
+        </ul>
+    </div>
     <script>
         let vm = new Vue({
-            el: "#app",
-            data: {},
+            el: " #app ",
+            data: {
+                inputval: '',
+                baidudata: []
+            },
             mounted() {
-                this.getdata();
+                // this.getdata();
             },
             methods: {
                 getdata() {
-                    // $.get(url, 参数， h回调)
-                    // this.$http.get("https://www.v2ex.com/api/topics/latest.json").then(function(res) {
-                    //     console.log(res);
-                    // }
-                    // this.$http.get("http://route.showapi.com/1211-1?showapi_appid=46452&count=15&showapi_sign=c3bc2247155b4219bffb60cac4fd315c").then(res => {
-                    //     console.log(res);
-                    // })
-                    // vue - resource: get参数放到params / post {}
-
-                    this.$http.get("http://route.showapi.com/1211-1", {
+                    this.$http.jsonp("https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su", {
                         params: {
-                            showapi_appid: '46452',
-                            count: 10,
-                            showapi_sign: 'c3bc2247155b4219bffb60cac4fd315c'
-                        }
+                            wd: this.inputval
+                        },
+                        jsonp: 'cb'
                     }).then(res => {
                         console.log(res);
+                        this.baidudata = res.body.s;
+                        // console.log(this.baidudata)
                     })
                 }
             },
