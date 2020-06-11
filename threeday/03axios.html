@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/vue.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.19.2/axios.min.js"></script>
+
+</head>
+
+<body>
+    <div id="app">
+    </div>
+</body>
+<script>
+    let vm = new Vue({
+        el: "#app",
+        data: {
+            datalist: []
+        },
+        mounted() {
+            this.getdata()
+        },
+        methods: {
+            getdata() {
+                // axios.get(路径， 参数).then(回调)
+                axios.get("http://route.showapi.com/1211-1", {
+                    params: {
+                        showapi_appid: '46452',
+                        count: 10,
+                        showapi_sign: 'c3bc2247155b4219bffb60cac4fd315c'
+                    }
+                }).then(res => {
+                    console.log(res)
+                })
+                axios.get('http://route.showapi.com/341-2', {
+                    params: {
+                        showapi_appid: '46452',
+                        page: 10,
+                        maxResult: 20,
+                        showapi_sign: 'c3bc2247155b4219bffb60cac4fd315c'
+                    }
+                }).then(res => {
+                    console.log(res);
+                })
+            }
+        }
+    })
+</script>
+
+</html>
